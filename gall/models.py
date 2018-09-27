@@ -24,7 +24,7 @@ class Posts(models.Model):
     description = models.CharField(max_length=50)
     article_image = models.ImageField(upload_to = 'articles/')
     location = models.ForeignKey(Location)
-    category = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category)
     
     def __str__(self):
         return self.name

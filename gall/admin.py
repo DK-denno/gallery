@@ -4,11 +4,6 @@ from django.contrib import admin
 from .models import Posts,Category,Location
 
 
-
-class PostsAdmin(admin.ModelAdmin):
-    filter_horizontal=('category',)
-
-
-admin.site.register(Posts,PostsAdmin)
+admin.site.register(Posts)
 admin.site.register(Category)
 admin.site.register(Location)
