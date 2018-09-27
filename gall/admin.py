@@ -6,7 +6,7 @@ from .models import Posts,Category,Location
 
 
 class PostsAdmin(admin.ModelAdmin):
-    filter_horizontal=('category','location')
+    filter_horizontal=('category',)
 
 
 admin.site.register(Posts,PostsAdmin)

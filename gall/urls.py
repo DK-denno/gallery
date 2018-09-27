@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$',views.index,name='index'),
-    url(r'^pic/(\d+)',views.full_pic,name='pic')
+    url(r'^pic/(\d+)',views.full_pic,name='pic'),
+    url(r'^dcmarv/(\d+)',views.dcmarv,name='dcmarv'),
 ]
 if settings.DEBUG:
      urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
