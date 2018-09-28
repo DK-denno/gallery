@@ -25,6 +25,16 @@ class Posts(models.Model):
     article_image = models.ImageField(upload_to = 'articles/')
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
+
+    @classmethod
+    def save_post(self):
+        self.save()
+    @classmethod
+    def get_posts(cls):
+         posts = cls.objects.all()
+         return posts
+    @classmethod
+
     
     def __str__(self):
         return self.name
