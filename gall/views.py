@@ -10,8 +10,8 @@ def full_pic(request,pic_id):
     return render(request,'one.html',{'posts':posts})
 
 def dcmarv(request,location_id):
-    posts = Posts.objects.filter(category_id=category_id)
-    return render(request,'dcmarv.html',{'posts':posts})
+    posts = Posts.objects.filter(location_id=location_id)
+    return render(request,'location.html',{'posts':posts})
 
 
 

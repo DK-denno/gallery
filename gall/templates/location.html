@@ -4,13 +4,12 @@
 {% for post in posts %}
 {{post.id}}
 
-<a href = '/pic/{{post.id}}/'><img src="{{post.article_image.url}}" alt="aaa"></a>
-{% endfor %}
-
-
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<a href = '/pic/{{post.id}}/' data-toggle="modal" data-target="#myModal{{post.id}}" ><img src="{{post.article_image.url}}" alt="aaa"></a>
+adfc
+{% enfor %}
+{% for post in posts %}
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myModal{{post.id}}" role="dialog">
   <div class="modal-dialog">
   
     <!-- Modal content-->
@@ -22,7 +21,7 @@
       <div class="modal-body">
         <p>Some text in the modal.</p>
         <p>aoishedbchxjazk\lksJhdcbjn </p>
-                <h2 class="text-center">NO UPLOADS FOR TODAY<img src="https://i.pinimg.com/originals/11/3f/60/113f60be580a09ef0027073423d98f0f.gif">NO UPLOADS FOR TODAY</h2>
+                <h2 class="text-center">NO UPLOADS FOR TODAY<img src="{{post.article_image.url}}">NO UPLOADS FOR TODAY</h2>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -33,4 +32,7 @@
 </div>
 
 </div>
+{% endfor %}
+
+
 {% endblock %}
