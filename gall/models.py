@@ -24,7 +24,7 @@ class Posts(models.Model):
     description = models.CharField(max_length=50)
     article_image = models.ImageField(upload_to = 'articles/')
     location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
+    category = models.ManyToManyField(Category)
 
     @classmethod
     def save_post(self):
@@ -34,6 +34,9 @@ class Posts(models.Model):
          posts = cls.objects.all()
          return posts
     @classmethod
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(category__icontains=search_term)
+        return images
 
     
     def __str__(self):
