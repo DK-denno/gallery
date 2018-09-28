@@ -2,10 +2,36 @@
 {% block content %}
 {% for post in posts %}
 {{post.id}}
-<img src="{{post.article_image.url}}" width='500' height='500' class='img-responsive' alt="aaa">
+<a data-toggle="modal" data-target="#myModal{{post.id}}" ><img src="{{post.article_image.url}}" alt="aaa"></a>
 
-{% for cat in post.category.all %}
-{{cat.category}}
 {% endfor %}
+{% for post in posts %}
+<!-- Modal -->
+<div class="modal fade" id="myModal{{post.id}}"  role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p><h1>{{post.name}}</h1></p>
+              <img src="{{post.article_image.url}}" width="450" height="400" >
+      </div>
+      <form class="form-control" >
+          <input type="text" class="form-control" value='https://localhost{{post.article_image.url}}' >
+          <button class="btn btn-succrss" onclick='alert("url copied")'>COPY URL</button>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+</div>
 {% endfor %}
 {% endblock %}

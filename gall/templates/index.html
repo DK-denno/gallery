@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-
-{% for post in posts %}
-
-<div class="panel mb-3 col-md-4">
+<div class="row">
+    {% for post in posts %}
+<div class="col-md-3">
     <div class="panel-header">
         <a href="/dcmarv/{{post.category_id}}">DC vs MARVEL</a><br>
         <h3>NAME:{{post.name}}</h3>
     </div>
-    <div class="panel-body">
+    <!-- <div class="panel-body">
         <h5 class="panel-title">Special title treatment</h5>
         <h6 class="panel-subtitle text-muted">Support card subtitle</h6>
-    </div>
+    </div> -->
     <div class="thumbnail">
         <a href='/pic/{{post.id}}/' id='dk'>
             <img style="height: 200px; width: 100%; display: block;" src="{{post.article_image.url}}" alt="Card image"></a>
@@ -20,17 +19,20 @@
     <div class="panel-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
             card's content.</p>
-    </div>
+    </div> 
 
     <a href="#" class="panel-link">Card link</a><br>
-    <a href="#" class="panel-link">Another link</a>
-    <div class='panel-footer' style="background-color: darkgrey; padding: 20px;">
+    <a href="#" class="panel-link">Another link</a> 
+        <div class='panel-footer' style="background-color: darkgrey; padding: 20px;">
         CAPTION: {{post.caption}}
         <a href="location/{{post.location_id}}">{{post.location}}</a>
         
     </div>
+
 </div>
-</div>
+
+
 {% endfor %}
 </div>
+
 {% endblock %}
