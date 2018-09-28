@@ -11,7 +11,7 @@ class Location(models.Model):
    
 
 class Category(models.Model):
-    name = models.CharField(max_length=10,,unique=True)
+    name = models.CharField(max_length=10)
 
     
     def __str__(self):
@@ -20,7 +20,6 @@ class Category(models.Model):
 
 class Posts(models.Model):
     name = models.CharField(max_length=50)
-    caption = models.CharField(max_length = 50)
     description = models.CharField(max_length=50)
     article_image = models.ImageField(upload_to = 'articles/')
     location = models.ForeignKey(Location)

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap3',
+    'bootstrap4',
     'gall',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'gall',
+        'NAME':'gallery',
         'USER':'dk',
         'PASSWORD':'Dennisveer27',
     }
