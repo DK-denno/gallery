@@ -16,6 +16,7 @@ def dcmarv(request,location_id):
 
 
 def search_results(request):
+    
     if 'image' in request.GET or request.GET['image']:
         search_item = request.GET.get('image')
         searched_images = Posts.search_by_category(search_item)
