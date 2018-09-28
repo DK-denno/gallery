@@ -34,7 +34,7 @@ class Posts(models.Model):
          return posts
     @classmethod
     def search_by_category(cls,search_term):
-        images = cls.objects.filter(category__icontains=search_term)
+        images = cls.objects.filter(category__name__icontains=search_term)
         return images
 
     
