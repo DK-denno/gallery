@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<em><H1>Click on the image to display details</H1></em>
 {% for post in posts %}
 
-<a data-toggle="modal" data-target="#myModal{{post.id}}"><img src="{{post.article_image.url}}" style="margin-left: 200px;margin-top: 50px;" width="900" height="500"
+<a data-toggle="modal" data-target="#myModal{{post.id}}"><img src="{{post.article_image.url}}" style="margin-left: 100px;margin-top: 30px;" width="900" height="500"
         alt="aaa"></a>
 
 {% endfor %}
@@ -24,6 +25,10 @@
                 </p>
                 <img src="{{post.article_image.url}}" width="450" height="400">
             </div>
+            <b><em>Description:</em></b>{{post.description}}
+            {% for pos in post.category.all %}
+            <b><em>Category:</em></b>{{pos}}
+            {% endfor %}
             <form class="form-control">
                 <input type="text" class="form-control" id="url" value='http://127.0.0.1:8000{{post.article_image.url}}'>
                 <button class="btn btn-succrss" onclick='copy()'>COPY URL</button>

@@ -3,40 +3,43 @@
 
 
 
-
+<div class="container">
 <div class="row">
     {% for post in posts %}
-<div class="col-md-3">
-    <div class="panel-header">
-        
-        <h3>NAME:{{post.name}}</h3>
-    </div>
-    <!-- <div class="panel-body">
-        <h5 class="panel-title">Special title treatment</h5>
-        <h6 class="panel-subtitle text-muted">Support card subtitle</h6>
-    </div> -->
-    <div class="thumbnail">
-        <a href='/pic/{{post.id}}/' id='dk'>
-            <img style="height: 200px; width: 100%; display: block;" src="{{post.article_image.url}}" alt="Card image"></a>
-    </div>
-
-    <div class="panel-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-    </div> 
-
-    <a href="#" class="panel-link">Card link</a><br>
-    <a href="#" class="panel-link">Another link</a> 
-        <div class='panel-footer' style="background-color: darkgrey; padding: 20px;">
-        CAPTION: {{post.caption}}
-        <a href="location/{{post.location_id}}">{{post.location}}</a>
-        
-    </div>
+   
+    <div class="col-md-5">
+            <div style="display: inline-block; ">
+              <div class="card ml-4" style=" width: 500px; text-align: center">
+                <h3 class="card-header" style="background-color: black; color: white;">{{post.name}} </h3>
+                   
+                <div class="card-body">
+                        <div class="thumbnail">
+                                <a href='/pic/{{post.id}}/' id='dk'>
+                                    <img style="height: 300px; width: 100%; display: block;" src="{{post.article_image.url}}" alt="Card image"></a>
+                            </div>
+                </div>
+      
+                  <div class="card-footer text-muted">
+                        {% for pos in post.category.all %}
+                        <b><em>Category:</em></b>{{pos}}
+                        <br>
+                        {% endfor %}
+                        Location:<a href="location/{{post.location_id}}">{{post.location}}</a>
+                    
+                  </div>
+                  {% if current_user.is_authenticated %}
+                  <button><a href="">Delete</a></button>
+                  {% endif %}
+                </div>
+      
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
 
 </div>
-
-
 {% endfor %}
 </div>
-
+</div>
 {% endblock %}

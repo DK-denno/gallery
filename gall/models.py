@@ -25,6 +25,8 @@ class Posts(models.Model):
     location = models.ForeignKey(Location)
     category = models.ManyToManyField(Category)
 
+    class Meta:
+        ordering=['-name']
     @classmethod
     def save_post(self):
         self.save()
