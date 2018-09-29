@@ -33,7 +33,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#vmhi^&3=cywxu0espz9(6bxq^@(3byil_v*o*xi*ft0@07ywx'
+SECRET_KEY = 'Dennisveer27'
 
 if config('MODE')=="dev":
    DATABASES = {
