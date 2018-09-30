@@ -27,6 +27,7 @@ class Posts(models.Model):
 
     class Meta:
         ordering=['-name']
+    
     @classmethod
     def save_post(self):
         self.save()
