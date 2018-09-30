@@ -9,7 +9,7 @@ class locationTest(TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_location,Location))
-        
+
     def test_data(self):
         self.assertTrue(self.new_location.location,"nairobi")
 
@@ -29,6 +29,11 @@ class locationTest(TestCase):
         self.update_location = Location.objects.filter(location='nairobi').update(location = 'aaabbbc')
         self.updated_location = Location.objects.get(location='aaabbbc')
         self.assertTrue(self.updated_location.location,'aaabbbc')
+
+    def test_get_location_by_id(self):
+        self.new_location.save()
+        locale = Location.objects.get(id=1)
+        self.assertTrue(locale.location,'nairobi')
 
 
 class CategoryTest(TestCase):
@@ -58,6 +63,10 @@ class CategoryTest(TestCase):
         self.updated_cat = Category.objects.get(name='aaabbbc')
         self.assertTrue(self.updated_cat.name,'aaabbbc')
 
+    def test_get_category_by_id(self):
+        self.new_category.save()
+        cat = Category.objects.get(id=1)
+        self.assertTrue(cat.name,'test')
 
 
 class postsTest(TestCase):
@@ -91,3 +100,10 @@ class postsTest(TestCase):
         self.update_post = Posts.objects.filter(name='dennis').update(name = 'aaabbbcccddd')
         self.updated_post = Posts.objects.get(name='aaabbbcccddd')
         self.assertTrue(self.updated_post.name,'aaabbbcccddd')
+
+
+    
+    def test_get_post_by_id(self):
+        self.new_post.save()
+        posts = Posts.objects.get(id=1)
+        self.assertTrue(posts.name,'dennis')
