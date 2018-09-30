@@ -9,6 +9,7 @@ class locationTest(TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_location,Location))
+        
     def test_data(self):
         self.assertTrue(self.new_location.location,"nairobi")
 
