@@ -4,43 +4,42 @@
 
 
 <div class="container">
-<div class="row">
+  <div class="row">
     {% for post in posts %}
-   
+
     <div class="col-md-5">
-            <div style="display: inline-block; ">
-              <div class="card ml-4" style=" width: 500px; text-align: center">
-                <h3 class="card-header" style="background-color: black; color: white;">{{post.name}} </h3>
-                   
-                <div class="card-body">
-                        <div class="thumbnail">
-                                <a href='/pic/{{post.id}}/' id='dk'>
-                                    <img style="height: 300px; width: 100%; display: block;" src="{{post.article_image.url}}" alt="Card image"></a>
-                            </div>
-                </div>
-      
-                  <div class="card-footer text-muted">
-                        {% for pos in post.category.all %}
-                        <b><em>Category:</em></b>{{pos}}
-                        <br>
-                        {% endfor %}
-                        Location:<a href="location/{{post.location_id}}">{{post.location}}</a>
-                    
-                  </div>
-                  {% if current_user.is_authenticated %}
-                  <button><a href="">Delete</a></button>
-                  {% endif %}
-                </div>
-      
-              </div>
+      <div style="display: inline-block; ">
+        <div class="card ml-4" style=" width: 500px; text-align: center">
+          <h3 class="card-header" style="background-color: black; color: white;">{{post.name}} </h3>
+
+          <div class="card-body">
+            <div class="thumbnail">
+              <a href='/pic/{{post.id}}/' id='dk'>
+                <img style="height: 300px; width: 100%; display: block;" src="{{post.article_image.url}}" alt="Card image"></a>
             </div>
           </div>
-          <br>
-          <br>
 
-</div>
+          <div class="card-footer text-muted">
+            {% for pos in post.category.all %}
+            <b><em>Category:</em></b>{{pos}}
+            <br>
+            {% endfor %}
 
-{% endfor %}
-</div>
+
+          </div>
+          {% if current_user.is_authenticated %}
+          <button><a href="">Delete</a></button>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+
+    <hr>
+
+
+
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

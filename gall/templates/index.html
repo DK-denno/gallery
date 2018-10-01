@@ -6,8 +6,9 @@
 
 <div class="row">
   {% for post in posts %}
+  
 <div class="col-md-5">
-        <div style="display: inline-block; ">
+        <div style="display: inline-block; margin-bottom: 20px; ">
           <div class="card ml-4" style=" width: 500px; text-align: center">
             <h3 class="card-header" style="background-color: black; color: white;">{{post.name}} </h3>
                
@@ -33,10 +34,10 @@
   
           </div>
         </div>
-      </div>
-      <br>
-      <br>
+     <hr>
+      
 {% endfor %}
 </div>
+
 
 {% endblock %}

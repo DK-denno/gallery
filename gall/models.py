@@ -26,7 +26,8 @@ class Posts(models.Model):
     category = models.ManyToManyField(Category)
 
     class Meta:
-        ordering=['-name']
+        ordering=['-id']
+    
     @classmethod
     def save_post(self):
         self.save()
@@ -38,7 +39,8 @@ class Posts(models.Model):
     def search_by_category(cls,search_term):
         images = cls.objects.filter(category__name__icontains=search_term)
         return images
-
+    def delete_post(self):
+        self.delete()
     
     def __str__(self):
         return self.name
