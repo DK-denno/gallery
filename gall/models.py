@@ -26,7 +26,7 @@ class Posts(models.Model):
     category = models.ManyToManyField(Category)
 
     class Meta:
-        ordering=['-name']
+        ordering=['-id']
     
     @classmethod
     def save_post(self):
