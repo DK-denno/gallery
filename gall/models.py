@@ -1,5 +1,5 @@
 from django.db import models
-
+from pyuploadcare.dj.models import ImageField
 # Create your models here.
 
 
@@ -21,7 +21,7 @@ class Category(models.Model):
 class Posts(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
-    article_image = models.ImageField(upload_to = 'articles/')
+    article_image = ImageField()
     location = models.ForeignKey(Location)
     category = models.ManyToManyField(Category)
 

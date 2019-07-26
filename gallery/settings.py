@@ -70,6 +70,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 INSTALLED_APPS = [
     'bootstrap4',
     'gall',
+    'pyuploadcare.dj',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -107,6 +108,12 @@ TEMPLATES = [
         },
     },
 ]
+
+UPLOADCARE = {
+    'pub_key':config('pub_key'),
+    'secret': config('secret'),
+}
+
 
 WSGI_APPLICATION = 'gallery.wsgi.application'
 
